@@ -1,7 +1,7 @@
 # WORDLE IN PYTHON
 
 ## How to play:
-> run python3 database.py **before playing the game** to generate the words list.
+> run python3 database.py **before playing the game** to generate the accepted words list.
 >> run python3 wordle.py to play.
 
 ## Contents info:
