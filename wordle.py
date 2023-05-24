@@ -34,6 +34,9 @@ def user_input(database):
         else:
             return guess
 
+def game_over(word):
+    print(f"Game over! The word was {word}!")
+
 def main():
     #current_guesses = 1
     word_list = words_list(WORDS_FILE)
@@ -44,14 +47,17 @@ def main():
     print(word_to_guess)
     for current_guesses in range(MAX_GUESSES):
         guess = user_input(database)
-
         if guess == word_to_guess:
             print("Correct")
             print(meaning_generator.meaning(guess.lower()))
             break
+
         correct = {letter for letter , correct in zip(guess, word_to_guess) if letter == correct}
         misplaced = set(guess) & set(word_to_guess) - correct
         wrong = set(guess) - set(word_to_guess)
+
+    if current_guesses > MAX_GUESSES:
+        game_over(word_to_guess)
 
 if __name__ == "__main__":
     main()
