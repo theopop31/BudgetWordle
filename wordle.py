@@ -60,7 +60,6 @@ def check_word(word_to_guess):
         game_over(meaning_generator.meaning(word_to_guess), "win") # Also print word meaning
     if (guess_number == MAX_GUESSES): # No more guesses
         game_over(word_to_guess, "lost")
-    print_message("Enter another 5-letter word")
 
 # Function to print messages according to the game outcome    
 def game_over(word, outcome):
@@ -150,6 +149,7 @@ for j in range(1, MAX_GUESSES + 1):
 entry = tk.Entry(content, font=("Arial", 22))
 entry.insert(INSERT, "Enter a 5-letter word here!")
 entry.grid(row=MAX_GUESSES + 1, columnspan=5, padx=10, pady=20)
+entry.bind("<FocusIn>", lambda x: entry.delete(0, END))
 
 # Create a frame for buttons
 button_frame=tk.Frame(content, bg="black")
