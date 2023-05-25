@@ -34,7 +34,7 @@ def check_word(word_to_guess):
 
     guessed_word = entry.get().upper()  # Get the guessed word from the entry field
     entry.delete(0, END)
-
+    print_message("")
     if (guess_number >= MAX_GUESSES): # Do nothing if no more guesses available
         return
 
@@ -64,7 +64,8 @@ def check_word(word_to_guess):
 # Function to print messages according to the game outcome    
 def game_over(word, outcome):
     if outcome == "lost":
-        print_message(f"Game over! The word was {word}!")
+        print_message(f"Game over! The word was {word} with the following meaning:\n {meaning_generator.meaning(word)}!")
+        
     else:
         print_message(f"You guessed the word!\nGreat job! The word has the following meaning:\n{word}")
 
